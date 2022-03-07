@@ -1,0 +1,24 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "description": "theme style for components of flyrobin",
+  "main": "lib/index.css",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "keywords": [
+    "theme"
+  ],
+  "author": "clarsw",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-sass": "^3.1.0"
+  }
+}
