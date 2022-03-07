@@ -8,6 +8,8 @@ const autoprefixer = require('gulp-autoprefixer')
 // 压缩css
 const cssmin = require('gulp-cssmin')
 const gulpCssmin = require('gulp-cssmin')
+// 引入浏览器热更新
+const livereload = require('gulp-livereload')
 
 
 // 首先通过gulp.task()注册任务
@@ -31,10 +33,17 @@ function compile() {
     .pipe(cssmin())
     // dest 输出到文件 将内存中数据输出到本地文件中
     .pipe(dest('../../lib/theme'))
+    .pipe(livereload())
 }
 
 function copyfont() {
   return src('./src/fonts/**').pipe(cssmin()).pipe(dest('../../lib/theme/fonts'))
 }
+
+function watchResolve() {
+  livereload.listen()
+  watch('./src/*.scss', compile)
+}
+
 // 将任务函数和/或组合操作组合成更大的操作，这些操作将按顺序依次执行。
-exports.build = series(compile, copyfont)
+exports.build = series(compile, copyfont, watchResolve)
