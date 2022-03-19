@@ -34,7 +34,7 @@ export default {
     if (reverse) {
       slots = slots.reverse()
     }
-    // return <ul class={classes}>{slots}</ul>
+    return <ul class={classes}>{slots}</ul>
   }
 }
 </script>
